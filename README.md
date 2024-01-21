@@ -13,7 +13,7 @@ _Currently in super beta so don't expect something working for a while._
 - Right shift menu to enable and disable mods (12%)
 - Health & Food bars replaced with dynamic bar similar to EXP bar (0%)
 - Custom GUIs (0%)
-- Built-in guide (0%)
+- Built-in guide (CANCELED) **This feature is being working in a different mod called "Dungeonfy+", so it will not be added to this one. We recommend you download that mod.**
 - Auto-Welcome (0%) **WARNING: This feature may prove to be annoying, in which case we will remove it.**
 - City NPCs (Lively Mode) (0%)
 - Fishing notifications (0%)
