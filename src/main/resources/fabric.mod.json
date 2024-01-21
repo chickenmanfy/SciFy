@@ -3,11 +3,11 @@
 	"id": "scify",
 	"version": "${version}",
 	"name": "SciFy",
-	"description": "The best (and only) client side Dungeonfy mod.",
+	"description": "A Dungeonfy mod so good you'll think it's science fiction",
 	"authors": [
 		"Main Developer: Chickenmanfy",
 		"Server Owner: Enook",
-		"BearCat865 (Just told me to do it)"
+		"Thanks to Endr. for help with some bugs!"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com",
