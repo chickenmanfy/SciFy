@@ -1,0 +1,58 @@
+{
+	"schemaVersion": 1,
+	"id": "scify",
+	"version": "${version}",
+	"name": "SciFy",
+	"description": "The best (and only) client side Dungeonfy mod.",
+	"authors": [
+		"Main Developer: Chickenmanfy",
+		"Server Owner: Enook",
+		"BearCat865 (Just told me to do it)"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com",
+		"sources": "https://github.com/chickenmanfy/scify/",
+		"issues": "https://github.com/chickenmanfy/scify/issues"
+	},
+	"license": "MPL-2.0",
+	"icon": "assets/scify/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "chickenmanfy.scify.SciFy",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "chickenmanfy.scify.SciFyClient",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"scify.mixins.json",
+		{
+			"config": "scify.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~1.19.4",
+		"java": ">=17",
+		"fabric-api": "*",
+		"fabric-language-kotlin": ">=1.9.22"
+	},
+	"suggests": {
+		"Dungeonfy+": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"Discord": "https://discord.gg/yhw4ajkCu8"
+			}
+		}
+	}
+}
