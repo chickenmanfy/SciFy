@@ -1,6 +1,5 @@
 package chickenmanfy.scify
 
-import io.github.prospector.modmenu.ModMenu
 import io.github.prospector.modmenu.api.ConfigScreenFactory
 import io.github.prospector.modmenu.api.ModMenuApi
 import net.fabricmc.api.ClientModInitializer
@@ -42,7 +41,7 @@ object SciFyClient : ClientModInitializer {
 @Environment(EnvType.CLIENT)
 class ScifyModMenu : ModMenuApi {
 	override fun getModConfigScreenFactory(): ConfigScreenFactory<*> {
-		return ConfigScreenFactory<*> { parent -> Menu(parent) }
+		return ConfigScreenFactory<*> { parent -> menu(parent) }
 	}
 }
 
