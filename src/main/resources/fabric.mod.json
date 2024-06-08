@@ -3,15 +3,22 @@
 	"id": "scify",
 	"version": "${version}",
 	"name": "SciFy",
-	"description": "A Dungeonfy mod so good you'll think it's science fiction",
+	"description": "A Dungeonfy mod so good you'll think it's science fiction\n\n\nThanks to the Dungeonfy community for giving me something to do during summer -Chickenmanfy",
 	"authors": [
-		"Main Developer: Chickenmanfy",
-		"Server Owner: Enook",
-		"Thanks to Endr. for help with some bugs!"
+		{
+			"name": "Chickenmanfy",
+			"role": "Main Developer"
+		}
+	],
+	"contributors": [
+		{
+			"name": "Endr.",
+			"role": "Help with bugs"
+		}
 	],
 	"contact": {
-		"homepage": "https://modrinth.com",
-		"sources": "https://github.com/chickenmanfy/scify/",
+		"homepage": "https://modrinth.com/project/scify",
+		"sources": "https://github.com/chickenmanfy/scify",
 		"issues": "https://github.com/chickenmanfy/scify/issues"
 	},
 	"license": "MPL-2.0",
@@ -40,7 +47,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.6",
-		"minecraft": "~1.19.4",
+		"minecraft": "~1.20.4",
 		"java": ">=17",
 		"fabric-api": "*",
 		"fabric-language-kotlin": ">=1.9.22"
