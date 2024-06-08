@@ -8,11 +8,11 @@ import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
 import net.minecraft.text.Text
 import org.lwjgl.glfw.GLFW
+import chickenmanfy.scify.Modules.autowelcome
 
 
 object SciFyClient : ClientModInitializer {
     override fun onInitializeClient() {
-
         val menu = KeyBindingHelper.registerKeyBinding(
             KeyBinding(
                 "Menu",
@@ -28,5 +28,6 @@ object SciFyClient : ClientModInitializer {
 
             }
         })
+        autowelcome()
     }
 }
