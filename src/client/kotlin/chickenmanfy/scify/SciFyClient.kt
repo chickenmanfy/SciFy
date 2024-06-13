@@ -1,5 +1,6 @@
 package chickenmanfy.scify
 
+import chickenmanfy.scify.Modules.Menu
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -8,7 +9,7 @@ import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
 import net.minecraft.text.Text
 import org.lwjgl.glfw.GLFW
-import chickenmanfy.scify.Modules.autowelcome
+
 
 
 object SciFyClient : ClientModInitializer {
@@ -25,9 +26,8 @@ object SciFyClient : ClientModInitializer {
             while (menu.wasPressed()) {
                 // Debug
                 client.player!!.sendMessage(Text.literal("Button input received."), true)
-
+                MinecraftClient.getInstance().setScreen(Menu())
             }
         })
-        autowelcome()
     }
 }
