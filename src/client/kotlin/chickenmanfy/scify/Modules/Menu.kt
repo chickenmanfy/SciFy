@@ -2,37 +2,81 @@ package chickenmanfy.scify.Modules
 
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
+import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.tooltip.Tooltip
 import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.text.Text
 
+
 @Environment(EnvType.CLIENT)
-class Menu : Screen(Text.literal("My tutorial screen")) {
-    var button1: ButtonWidget? = null
-    var button2: ButtonWidget? = null
+class Menu : Screen(Text.literal("SciFy Menu")) {
+    private var dynamicBars: ButtonWidget? = null
+    private var fishingNotif: ButtonWidget? = null
+    private var warpHotkeys: ButtonWidget? = null
+    private var autoWelcome: ButtonWidget? = null
+    private var livelyMode: ButtonWidget? = null
+    private var resourcePack: ButtonWidget? = null
 
     init {
         // The parameter is the title of the screen,
         // which will be narrated when you enter the screen.
     }
 
-
+    override fun render(context: DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
+        super.render(context, mouseX, mouseY, delta)
+        context.drawCenteredTextWithShadow(
+            textRenderer,
+            Text.literal("SciFy Menu"),
+            width / 2,
+            5,
+            0xff00ff
+        )
+    }
     public override fun init() {
-        button1 = ButtonWidget.builder(Text.literal("Button 1")) { button: ButtonWidget? ->
-            println("You clicked button1!")
+
+        dynamicBars = ButtonWidget.builder(Text.literal("Dynamic Health")) {
+            bars().toggleBars() // Call the function toggleBars() from the bars.kt module
         }
             .dimensions(width / 2 - 205, 20, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Tooltip of button1")))
+            .tooltip(Tooltip.of(Text.literal("Health bar similar to XP")))
             .build()
-        button2 = ButtonWidget.builder(Text.literal("Button 2")) { button: ButtonWidget? ->
-            println("You clicked button2!")
+        fishingNotif = ButtonWidget.builder(Text.literal("Fishing Notifications")) {
+            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
         }
             .dimensions(width / 2 + 5, 20, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Tooltip of button2")))
+            .tooltip(Tooltip.of(Text.literal("Fishing Notifications")))
+            .build()
+        warpHotkeys = ButtonWidget.builder(Text.literal("Toggle hotkeys")) {
+            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+        }
+            .dimensions(width / 2 - 205, 60, 200, 20)
+            .tooltip(Tooltip.of(Text.literal("Enable/Disable hotkeys.")))
+            .build()
+        autoWelcome = ButtonWidget.builder(Text.literal("Auto-Welcome")) {
+            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+        }
+            .dimensions(width / 2 + 5, 60, 200, 20)
+            .tooltip(Tooltip.of(Text.literal("Automatically welcomes new players.")))
+            .build()
+        livelyMode = ButtonWidget.builder(Text.literal("City NPCs (Lively Mode)")) {
+            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+        }
+            .dimensions(width / 2 - 205, 100, 200, 20)
+            .tooltip(Tooltip.of(Text.literal("Replaces Villagers with player NPCs")))
+            .build()
+        resourcePack = ButtonWidget.builder(Text.literal("Toggle Resource Pack")) {
+            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+        }
+            .dimensions(width / 2 + 5, 100, 200, 20)
+            .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack.")))
             .build()
 
-        addDrawableChild(button1)
-        addDrawableChild(button2)
+        addDrawableChild(dynamicBars)
+        addDrawableChild(fishingNotif)
+        addDrawableChild(warpHotkeys)
+        addDrawableChild(autoWelcome)
+        addDrawableChild(livelyMode)
+        addDrawableChild(resourcePack)
     }
 }

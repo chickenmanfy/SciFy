@@ -14,6 +14,7 @@ import org.lwjgl.glfw.GLFW
 
 object SciFyClient : ClientModInitializer {
     override fun onInitializeClient() {
+        // Open Menu Hotkey
         val menu = KeyBindingHelper.registerKeyBinding(
             KeyBinding(
                 "Menu",
@@ -22,6 +23,8 @@ object SciFyClient : ClientModInitializer {
                 "SciFy"
             )
         )
+
+
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick { client: MinecraftClient ->
             while (menu.wasPressed()) {
                 // Debug
