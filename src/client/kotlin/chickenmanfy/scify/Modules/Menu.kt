@@ -48,15 +48,15 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .tooltip(Tooltip.of(Text.literal("Fishing Notifications")))
             .build()
         warpHotkeys = ButtonWidget.builder(Text.literal("Toggle hotkeys")) {
-            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+            // I don't think we actually need this module at all. TODO: replace with something else
         }
             .dimensions(width / 2 - 205, 60, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Enable/Disable hotkeys.")))
             .build()
         autoWelcome = ButtonWidget.builder(Text.literal("Auto-Welcome")) {
-            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+            autowelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the fishingnotif.kt module
         }
-            .dimensions(width / 2 + 5, 60, 200, 20)
+            .dimensions(width / 2 - 205, 60, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Automatically welcomes new players.")))
             .build()
         livelyMode = ButtonWidget.builder(Text.literal("City NPCs (Lively Mode)")) {
@@ -66,17 +66,17 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .tooltip(Tooltip.of(Text.literal("Replaces Villagers with player NPCs")))
             .build()
         resourcePack = ButtonWidget.builder(Text.literal("Toggle Resource Pack")) {
-            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+            // TODO: Implement Resource pack
         }
-            .dimensions(width / 2 + 5, 100, 200, 20)
+            .dimensions(width / 2 + 5, 60, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack.")))
             .build()
 
         addDrawableChild(dynamicBars)
         addDrawableChild(fishingNotif)
-        addDrawableChild(warpHotkeys)
+        //addDrawableChild(warpHotkeys)
         addDrawableChild(autoWelcome)
-        addDrawableChild(livelyMode)
+        //addDrawableChild(livelyMode)
         addDrawableChild(resourcePack)
     }
 }

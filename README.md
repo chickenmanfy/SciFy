@@ -17,3 +17,4 @@ _Currently in super beta so don't expect something working for a while._
 - Auto-Welcome (20%) **WARNING: This feature may prove to be annoying, in which case we will remove it.**
 - City NPCs (Lively Mode) (0%)
 - Fishing notifications (0%)
+- Macros (100%)
