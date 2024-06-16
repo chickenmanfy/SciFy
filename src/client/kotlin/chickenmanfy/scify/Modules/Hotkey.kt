@@ -8,7 +8,7 @@ import net.minecraft.client.util.InputUtil
 import org.lwjgl.glfw.GLFW
 
 
-class hotkey {
+class Hotkey {
     fun hotkeys() {
 
         // Register Keys

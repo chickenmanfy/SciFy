@@ -36,13 +36,13 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
     public override fun init() {
 
         dynamicBars = ButtonWidget.builder(Text.literal("Dynamic Health")) {
-            bars().toggleBars() // Call the function toggleBars() from the bars.kt module
+            Bars().toggleBars() // Call the function toggleBars() from the bars.kt module
         }
             .dimensions(width / 2 - 205, 20, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Health bar similar to XP")))
             .build()
         fishingNotif = ButtonWidget.builder(Text.literal("Fishing Notifications")) {
-            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+            FishingNotif().toggleFishingNotif() // If toggleFishingNotif() is true, run the fishing notification script.
         }
             .dimensions(width / 2 + 5, 20, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Fishing Notifications")))
@@ -54,13 +54,13 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .tooltip(Tooltip.of(Text.literal("Enable/Disable hotkeys.")))
             .build()
         autoWelcome = ButtonWidget.builder(Text.literal("Auto-Welcome")) {
-            autowelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the fishingnotif.kt module
+            AutoWelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the fishingnotif.kt module
         }
             .dimensions(width / 2 - 205, 60, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Automatically welcomes new players.")))
             .build()
         livelyMode = ButtonWidget.builder(Text.literal("City NPCs (Lively Mode)")) {
-            fishingnotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
+            FishingNotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
         }
             .dimensions(width / 2 - 205, 100, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Replaces Villagers with player NPCs")))
