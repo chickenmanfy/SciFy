@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
-import net.minecraft.text.Text
 import org.lwjgl.glfw.GLFW
 
 
@@ -29,8 +28,6 @@ object SciFyClient : ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick { client: MinecraftClient ->
             while (menu.wasPressed()) {
-                // Debug
-                client.player!!.sendMessage(Text.literal("Button input received."), true)
                 MinecraftClient.getInstance().setScreen(Menu())
             }
         })
