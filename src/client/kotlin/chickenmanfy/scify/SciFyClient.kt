@@ -26,7 +26,7 @@ object SciFyClient : ClientModInitializer {
         )
 
 
-        ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick { client: MinecraftClient ->
+        ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (menu.wasPressed()) {
                 MinecraftClient.getInstance().setScreen(Menu())
             }
