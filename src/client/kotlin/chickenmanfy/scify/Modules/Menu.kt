@@ -19,11 +19,6 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
     private var livelyMode: ButtonWidget? = null
     private var resourcePack: ButtonWidget? = null
 
-    init {
-        // The parameter is the title of the screen,
-        // which will be narrated when you enter the screen.
-    }
-
     override fun render(context: DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
         super.render(context, mouseX, mouseY, delta)
         context.drawCenteredTextWithShadow(
