@@ -35,7 +35,7 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
         )
 
         val texture = Identifier("scify", "scify.png")
-        context.drawTexture(texture, width / 2 - 32, 20, 0F, 0F, 64, 64, 64, 64);
+        context.drawTexture(texture, width / 2 - 32, 20, 0F, 0F, 64, 64, 64, 64)
     }
     public override fun init() {
 
