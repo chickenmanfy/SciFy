@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.tooltip.Tooltip
 import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.text.Text
+import net.minecraft.util.Identifier
 
 
 @Environment(EnvType.CLIENT)
@@ -32,43 +33,46 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             5,
             0xff00ff
         )
+
+        val texture = Identifier("scify", "scify.png")
+        context.drawTexture(texture, width / 2 - 32, 20, 0F, 0F, 64, 64, 64, 64);
     }
     public override fun init() {
 
         dynamicBars = ButtonWidget.builder(Text.literal("Dynamic Health")) {
             Bars().toggleBars() // Call the function toggleBars() from the bars.kt module
         }
-            .dimensions(width / 2 - 205, 20, 200, 20)
+            .dimensions(width / 2 - 205, 84, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Health bar similar to XP")))
             .build()
         fishingNotif = ButtonWidget.builder(Text.literal("Fishing Notifications")) {
             FishingNotif().toggleFishingNotif() // If toggleFishingNotif() is true, run the fishing notification script.
         }
-            .dimensions(width / 2 + 5, 20, 200, 20)
+            .dimensions(width / 2 + 5, 84, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Fishing Notifications")))
             .build()
         warpHotkeys = ButtonWidget.builder(Text.literal("Toggle hotkeys")) {
             // I don't think we actually need this module at all. TODO: replace with something else
         }
-            .dimensions(width / 2 - 205, 60, 200, 20)
+            .dimensions(width / 2 - 205, 164, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Enable/Disable hotkeys.")))
             .build()
         autoWelcome = ButtonWidget.builder(Text.literal("Auto-Welcome")) {
             AutoWelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the fishingnotif.kt module
         }
-            .dimensions(width / 2 - 205, 60, 200, 20)
+            .dimensions(width / 2 - 205, 124, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Automatically welcomes new players.")))
             .build()
         livelyMode = ButtonWidget.builder(Text.literal("City NPCs (Lively Mode)")) {
             FishingNotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the fishingnotif.kt module
         }
-            .dimensions(width / 2 - 205, 100, 200, 20)
+            .dimensions(width / 2 - 205, 164, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Replaces Villagers with player NPCs")))
             .build()
         resourcePack = ButtonWidget.builder(Text.literal("Toggle Resource Pack")) {
             // TODO: Implement Resource pack
         }
-            .dimensions(width / 2 + 5, 60, 200, 20)
+            .dimensions(width / 2 + 5, 124, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack.")))
             .build()
 
