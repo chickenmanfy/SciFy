@@ -1,4 +1,4 @@
-package chickenmanfy.scify.Modules
+package chickenmanfy.scify.modules
 
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment

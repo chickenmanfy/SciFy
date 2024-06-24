@@ -1,7 +1,7 @@
-package chickenmanfy.scify.Modules
+package chickenmanfy.scify.modules
 
 var autoWelcomeToggle: Boolean = false
-class AutoWelcome() {
+class AutoWelcome {
     fun toggleAutoWelcome() {
         autoWelcomeToggle = !autoWelcomeToggle
         if (autoWelcomeToggle) {

@@ -1,4 +1,4 @@
-package chickenmanfy.scify.Modules
+package chickenmanfy.scify.modules
 
 var fishingToggle: Boolean = false
 class FishingNotif {

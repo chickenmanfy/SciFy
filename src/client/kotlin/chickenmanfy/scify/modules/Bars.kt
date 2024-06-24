@@ -1,4 +1,4 @@
-package chickenmanfy.scify.Modules
+package chickenmanfy.scify.modules
 
 var barsToggle: Boolean = false
 class Bars {

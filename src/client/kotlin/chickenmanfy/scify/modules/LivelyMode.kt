@@ -1,7 +1,7 @@
-package chickenmanfy.scify.Modules
+package chickenmanfy.scify.modules
 
 var livelyModeToggle: Boolean = false
-class LivelyMode() {
+class LivelyMode {
     fun toggleLivelyMode() {
         livelyModeToggle = !livelyModeToggle
         if (livelyModeToggle) {
