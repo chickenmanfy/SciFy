@@ -21,7 +21,7 @@
 		"sources": "https://github.com/chickenmanfy/scify",
 		"issues": "https://github.com/chickenmanfy/scify/issues"
 	},
-	"license": "MPL-2.0",
+	"license": "GNU General Public License Version 3",
 	"icon": "assets/scify/icon.png",
 	"environment": "*",
 	"entrypoints": {
