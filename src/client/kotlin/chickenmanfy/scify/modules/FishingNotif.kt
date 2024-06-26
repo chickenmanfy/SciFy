@@ -15,6 +15,6 @@ class FishingNotif {
     // toggleFishingNotif()
 
     private fun fishingNotif() {
-        TODO("Finish this")
+        return
     }
 }
