@@ -21,7 +21,7 @@
 		"sources": "https://github.com/chickenmanfy/scify",
 		"issues": "https://github.com/chickenmanfy/scify/issues"
 	},
-	"license": "GNU General Public License Version 3",
+	"license": "GPL-3",
 	"icon": "assets/scify/icon.png",
 	"environment": "*",
 	"entrypoints": {
