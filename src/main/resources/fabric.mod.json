@@ -51,7 +51,7 @@
 		"fabric-language-kotlin": ">=1.9.22"
 	},
 	"suggests": {
-		"Dungeonfy+": "*"
+		"Mythicfy": "*"
 	},
 	"custom": {
 		"modmenu": {
