@@ -36,6 +36,15 @@ class Hotkey {
                 "SciFy"
             )
         )
+        // Open Menu Hotkey
+        val menu = KeyBindingHelper.registerKeyBinding(
+            KeyBinding(
+                "Menu",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_RIGHT_SHIFT,
+                "SciFy"
+            )
+        )
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (warp.wasPressed()) {
                 MinecraftClient.getInstance().networkHandler!!.sendChatCommand("warp")
@@ -45,6 +54,9 @@ class Hotkey {
             }
             while (guide.wasPressed()) {
                 MinecraftClient.getInstance().networkHandler!!.sendChatCommand("guide")
+            }
+            while (menu.wasPressed()) {
+                MinecraftClient.getInstance().setScreen(Menu())
             }
 
         })
