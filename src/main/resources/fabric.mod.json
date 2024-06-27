@@ -6,14 +6,12 @@
 	"description": "A Dungeonfy mod so good you'll think it's science fiction\n\n\nThanks to the Dungeonfy community for giving me something to do during summer -Chickenmanfy",
 	"authors": [
 		{
-			"name": "Chickenmanfy",
-			"role": "Main Developer"
+			"name": "Chickenmanfy"
 		}
 	],
 	"contributors": [
 		{
-			"name": "Endr.",
-			"role": "Help with bugs"
+			"name": "Endr."
 		}
 	],
 	"contact": {
