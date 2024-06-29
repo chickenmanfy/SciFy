@@ -45,18 +45,52 @@ class Hotkey {
                 "SciFy"
             )
         )
+
+        // Debug
+        val debug = KeyBindingHelper.registerKeyBinding(
+            KeyBinding(
+                "Debug",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_MINUS,
+                "SciFy"
+            )
+        )
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (warp.wasPressed()) {
-                MinecraftClient.getInstance().networkHandler!!.sendChatCommand("warp")
+                if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com") // if you join minehut.com and type /join dungeonfy
+                {
+                    MinecraftClient.getInstance().networkHandler!!.sendChatCommand("warp")
+                }
+
             }
             while (enderchest.wasPressed()) {
-                MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
+                if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com") // if you join minehut.com and type /join dungeonfy
+                {
+                    MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
+                }
             }
             while (guide.wasPressed()) {
-                MinecraftClient.getInstance().networkHandler!!.sendChatCommand("guide")
+                if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com") // if you join minehut.com and type /join dungeonfy
+                {
+                    MinecraftClient.getInstance().networkHandler!!.sendChatCommand("guide")
+                }
             }
             while (menu.wasPressed()) {
-                MinecraftClient.getInstance().setScreen(Menu())
+                if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com") // if you join minehut.com and type /join dungeonfy
+                {
+                    MinecraftClient.getInstance().setScreen(Menu())
+                }
+            }
+            while (debug.wasPressed()) {
+                println(MinecraftClient.getInstance().networkHandler?.serverInfo?.address)
             }
 
         })
