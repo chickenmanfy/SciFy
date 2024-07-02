@@ -6,10 +6,8 @@ import net.fabricmc.api.ClientModInitializer
 
 object SciFyClient : ClientModInitializer {
     override fun onInitializeClient() {
-        // Runs the Hotkey().hotkeys() function which contains all keybindings.
-        Hotkey().hotkeys()
-
         // Run the modules
+        Hotkey().hotkeys()
         AutoWelcome().autoWelcome()
         FishingNotif().fishingNotif()
         Bars().bars()
