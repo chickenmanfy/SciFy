@@ -3,7 +3,6 @@ package chickenmanfy.scify.modules
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
-import net.minecraft.client.render.*
 
 var watermarkToggle = true
 class Watermark() {
@@ -13,7 +12,6 @@ class Watermark() {
 
     fun watermark() {
             HudRenderCallback.EVENT.register(HudRenderCallback { drawContext: DrawContext?, tickDelta: Float ->
-                val tessellator: Tessellator = Tessellator.getInstance()
 
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599"
                 ) {
