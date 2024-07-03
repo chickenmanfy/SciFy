@@ -5,7 +5,6 @@ import net.fabricmc.api.ClientModInitializer
 
 
 object SciFyClient : ClientModInitializer {
-    val debugUser = "Chickenmanfy"
     override fun onInitializeClient() {
 
         // Run the Modules
@@ -13,6 +12,7 @@ object SciFyClient : ClientModInitializer {
         AutoWelcome().autoWelcome()
         FishingNotif().fishingNotif()
         Bars().bars()
+        Watermark().watermark()
         //LivelyMode().livelyMode()
     }
 }

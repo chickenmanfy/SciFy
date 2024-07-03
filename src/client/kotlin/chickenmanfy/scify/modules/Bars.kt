@@ -1,7 +1,6 @@
 package chickenmanfy.scify.modules
 
 import chickenmanfy.scify.BridgeMixins
-import chickenmanfy.scify.SciFyClient.debugUser
 import com.mojang.blaze3d.systems.RenderSystem
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 import net.minecraft.client.MinecraftClient
@@ -20,8 +19,7 @@ class Bars {
             val tessellator: Tessellator = Tessellator.getInstance()
             val buffer: BufferBuilder = tessellator.buffer
             val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
-            if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                MinecraftClient.getInstance().player?.name?.string == debugUser) {
+            if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
                 if (barsToggle) {
                     buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
                     buffer.vertex(positionMatrix, 240F, 460F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()

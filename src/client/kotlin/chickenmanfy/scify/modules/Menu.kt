@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier
 class Menu : Screen(Text.literal("SciFy Menu")) {
     private var dynamicBars: ButtonWidget? = null
     private var fishingNotif: ButtonWidget? = null
-    private var warpHotkeys: ButtonWidget? = null
+    private var watermark: ButtonWidget? = null
     private var autoWelcome: ButtonWidget? = null
     private var livelyMode: ButtonWidget? = null
     private var resourcePack: ButtonWidget? = null
@@ -46,11 +46,11 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .dimensions(width / 2 + 5, 84, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Fishing Notifications")))
             .build()
-        warpHotkeys = ButtonWidget.builder(Text.literal("Toggle hotkeys")) {
-            // I don't think we actually need this module at all. TODO: replace with something else
+        watermark = ButtonWidget.builder(Text.literal("Show Watermark")) {
+            Watermark().toggleWaterMark() // Call the function toggleWaterMark() from the Watermark.kt module
         }
             .dimensions(width / 2 - 205, 164, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Enable/Disable hotkeys.")))
+            .tooltip(Tooltip.of(Text.literal("Enable/Disable the small text in the bottom right displaying the mod name.")))
             .build()
         autoWelcome = ButtonWidget.builder(Text.literal("Auto-Welcome")) {
             AutoWelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the AutoWelcome.kt module
@@ -73,7 +73,7 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
 
         addDrawableChild(dynamicBars)
         addDrawableChild(fishingNotif)
-        //addDrawableChild(warpHotkeys)
+        addDrawableChild(watermark)
         addDrawableChild(autoWelcome)
         //addDrawableChild(livelyMode)
         addDrawableChild(resourcePack)

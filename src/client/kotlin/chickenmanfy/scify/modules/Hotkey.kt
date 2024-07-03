@@ -1,6 +1,5 @@
 package chickenmanfy.scify.modules
 
-import chickenmanfy.scify.SciFyClient.debugUser
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.minecraft.client.MinecraftClient
@@ -60,8 +59,7 @@ class Hotkey {
             while (warp.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||  // if you join minehut.com and type /join dungeonfy
-                    MinecraftClient.getInstance().player?.name?.string == debugUser) // Test override
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
                 {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("warp")
                 }
@@ -70,8 +68,7 @@ class Hotkey {
             while (enderchest.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||  // if you join minehut.com and type /join dungeonfy
-                    MinecraftClient.getInstance().player?.name?.string == debugUser) // Test override
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
                 {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
                 }
@@ -79,8 +76,7 @@ class Hotkey {
             while (guide.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||  // if you join minehut.com and type /join dungeonfy
-                    MinecraftClient.getInstance().player?.name?.string == debugUser) // Test override
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
                 {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("guide")
                 }
@@ -88,8 +84,7 @@ class Hotkey {
             while (menu.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||  // if you join minehut.com and type /join dungeonfy
-                    MinecraftClient.getInstance().player?.name?.string == debugUser) // Test override
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
                 {
                     MinecraftClient.getInstance().setScreen(Menu())
                 }
