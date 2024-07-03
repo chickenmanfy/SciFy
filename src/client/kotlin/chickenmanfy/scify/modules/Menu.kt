@@ -34,11 +34,11 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
     }
     public override fun init() {
 
-        dynamicBars = ButtonWidget.builder(Text.literal("Dynamic Health")) {
+        dynamicBars = ButtonWidget.builder(Text.literal("Custom Health/Mana")) {
             Bars().toggleBars() // Call the function toggleBars() from the bars.kt module
         }
             .dimensions(width / 2 - 205, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Health bar similar to XP")))
+            .tooltip(Tooltip.of(Text.literal("Custom Health and Mana bars.")))
             .build()
         fishingNotif = ButtonWidget.builder(Text.literal("Fishing Notifications")) {
             FishingNotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the FishingNotif.kt module
