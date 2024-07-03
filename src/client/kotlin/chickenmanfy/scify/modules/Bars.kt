@@ -15,28 +15,28 @@ class Bars {
     }
 
     fun bars() {
-        if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||  // if you join minehut.com and type /join dungeonfy
-                    MinecraftClient.getInstance().player?.name?.string == debugUser) {
-                HudRenderCallback.EVENT.register(HudRenderCallback { drawContext: DrawContext?, tickDelta: Float ->
-                    val tessellator: Tessellator = Tessellator.getInstance()
-                    val buffer: BufferBuilder = tessellator.buffer
-                    val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
-                    if (barsToggle) {
-                        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
-                        buffer.vertex(positionMatrix, 20F, 20F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
-                        buffer.vertex(positionMatrix, 20F, 60F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
-                        buffer.vertex(positionMatrix, 60F, 60F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
-                        buffer.vertex(positionMatrix, 60F, 20F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
+        HudRenderCallback.EVENT.register(HudRenderCallback { drawContext: DrawContext?, tickDelta: Float ->
+            val tessellator: Tessellator = Tessellator.getInstance()
+            val buffer: BufferBuilder = tessellator.buffer
+            val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
+            if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
+                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
+                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||  // if you join minehut.com and type /join dungeonfy
+                MinecraftClient.getInstance().player?.name?.string == debugUser) {
+                if (barsToggle) {
+                    buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
+                    buffer.vertex(positionMatrix, 20F, 20F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
+                    buffer.vertex(positionMatrix, 20F, 60F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
+                    buffer.vertex(positionMatrix, 60F, 60F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
+                    buffer.vertex(positionMatrix, 60F, 20F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
 
-                        RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "scify.png"))
-                        RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
+                    RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
+                    RenderSystem.setShaderTexture(0, Identifier("scify", "scify.png"))
+                    RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 
-                        tessellator.draw()
-                    }
-                })
+                    tessellator.draw()
+                }
             }
+        })
     }
 }
