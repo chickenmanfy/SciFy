@@ -29,10 +29,10 @@ class Bars {
 
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
                     if (BridgeMixins.getNum1() < 10) {
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "./HealthMana/Mana/Vials_000${BridgeMixins.getNum1() + 20}.png"))
+                        RenderSystem.setShaderTexture(0, Identifier("scify", "HealthMana/Mana/Vials_000${BridgeMixins.getNum1() + 20}.png"))
                     }
                     else {
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "./HealthMana/Mana/Vials_00${BridgeMixins.getNum1() + 20}.png"))
+                        RenderSystem.setShaderTexture(0, Identifier("scify", "HealthMana/Mana/Vials_00${BridgeMixins.getNum1() + 20}.png"))
                     }
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 
