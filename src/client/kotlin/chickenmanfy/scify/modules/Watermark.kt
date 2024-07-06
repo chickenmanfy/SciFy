@@ -17,7 +17,7 @@ class Watermark() {
                 ) {
                     if (watermarkToggle) {
                         val minecraftClient = MinecraftClient.getInstance()
-                        drawContext?.drawTextWithShadow(minecraftClient.textRenderer,"§nSciFy v0.1.1",minecraftClient.window.scaledWidth - minecraftClient.textRenderer.getWidth("SciFy v0.1.1") - 5, minecraftClient.window.scaledHeight - minecraftClient.textRenderer.fontHeight - 5, 0xff00ff)
+                        drawContext?.drawTextWithShadow(minecraftClient.textRenderer,"§nSciFy v0.1.2",minecraftClient.window.scaledWidth - minecraftClient.textRenderer.getWidth("SciFy v0.1.2") - 5, minecraftClient.window.scaledHeight - minecraftClient.textRenderer.fontHeight - 5, 0xff00ff)
                     }
                 }
             })

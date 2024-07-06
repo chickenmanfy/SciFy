@@ -52,12 +52,5 @@
 	},
 	"suggests": {
 		"Mythicfy": "*"
-	},
-	"custom": {
-		"modmenu": {
-			"links": {
-				"Discord": "https://discord.gg/4vyxZgH9xu"
-			}
-		}
 	}
 }
