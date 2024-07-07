@@ -17,9 +17,9 @@ object BridgeMixins {
     }
 
     fun setNum0(number: Int) {
-        num0 = number
+        num0 = number - 1
     }
     fun setNum1(number: Int) {
-        num1 = number
+        num1 = number - 1
     }
 }
