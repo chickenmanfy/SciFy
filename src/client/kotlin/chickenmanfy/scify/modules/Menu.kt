@@ -52,11 +52,11 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .dimensions(width / 2 - 205, 164, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Enable/Disable the small text in the bottom right displaying the mod name.")))
             .build()
-        autoWelcome = ButtonWidget.builder(Text.literal("Auto-Welcome")) {
+        autoWelcome = ButtonWidget.builder(Text.literal("Auto Welcome Back")) {
             AutoWelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the AutoWelcome.kt module
         }
             .dimensions(width / 2 - 205, 124, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Automatically welcomes new players.")))
+            .tooltip(Tooltip.of(Text.literal("Automatically sends \"wb\" when a player joins.")))
             .build()
         livelyMode = ButtonWidget.builder(Text.literal("City NPCs (Lively Mode)")) {
             LivelyMode().toggleLivelyMode() // Call the function toggleLivelyMode() from the LivelyMode.kt module
