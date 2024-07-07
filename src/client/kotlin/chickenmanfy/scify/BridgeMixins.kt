@@ -9,17 +9,23 @@ object BridgeMixins {
     }
 
     fun getStrNum0(): String {
-        return num0.toString()
+        if (num0 != 0) {
+            return num0.toString()
+        }
+        return "1"
     }
     fun getStrNum1(): String {
-        val strNum1 = num1 + 20
-        return strNum1.toString()
+        if (num1 != 0) {
+            val strNum1 = num1 + 20
+            return strNum1.toString()
+        }
+        return "1"
     }
 
     fun setNum0(number: Int) {
-        num0 = number - 1
+        num0 = number
     }
     fun setNum1(number: Int) {
-        num1 = number - 1
+        num1 = number
     }
 }

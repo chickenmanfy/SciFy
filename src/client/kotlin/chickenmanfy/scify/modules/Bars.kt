@@ -22,10 +22,10 @@ class Bars {
             if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
                 if (barsToggle) {
                     buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
-                    buffer.vertex(positionMatrix, 240F, 460F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
-                    buffer.vertex(positionMatrix, 240F, 500F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
-                    buffer.vertex(positionMatrix, 280F, 500F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
-                    buffer.vertex(positionMatrix, 280F, 460F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-120, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-120, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-80, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-80, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
 
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
 
@@ -35,10 +35,10 @@ class Bars {
                     tessellator.draw()
 
                     buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
-                    buffer.vertex(positionMatrix, 215F, 460F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
-                    buffer.vertex(positionMatrix, 215F, 500F, 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
-                    buffer.vertex(positionMatrix, 255F, 500F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
-                    buffer.vertex(positionMatrix, 255F, 460F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-140, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-140, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-100, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-100, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
 
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
                     if (BridgeMixins.getNum0() < 10) {
