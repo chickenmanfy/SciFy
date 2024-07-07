@@ -28,12 +28,8 @@ class Bars {
                     buffer.vertex(positionMatrix, 280F, 460F, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
 
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
-                    if (BridgeMixins.getNum1() < 10) {
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "HealthMana/Mana/Vials_000${BridgeMixins.getNum1() + 20}.png"))
-                    }
-                    else {
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "HealthMana/Mana/Vials_00${BridgeMixins.getNum1() + 20}.png"))
-                    }
+
+                    RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/mana/vials_00${BridgeMixins.getStrNum1()}.png"))
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 
                     tessellator.draw()
@@ -46,9 +42,9 @@ class Bars {
 
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
                     if (BridgeMixins.getNum0() < 10) {
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "./HealthMana/Health/Vials_000${BridgeMixins.getNum0()}.png"))
+                        RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/health/vials_000${BridgeMixins.getStrNum0()}.png"))
                     } else {
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "./HealthMana/Health/Vials_00${BridgeMixins.getNum0()}.png"))
+                        RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/health/vials_00${BridgeMixins.getStrNum0()}.png"))
                     }
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 

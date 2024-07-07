@@ -5,7 +5,7 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 
 var watermarkToggle = true
-class Watermark() {
+class Watermark {
     fun toggleWaterMark() {
         watermarkToggle = !watermarkToggle
     }
@@ -18,7 +18,7 @@ class Watermark() {
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com") {
                     if (watermarkToggle) {
                         val minecraftClient = MinecraftClient.getInstance()
-                        drawContext?.drawTextWithShadow(minecraftClient.textRenderer,"§nSciFy v0.1.2",minecraftClient.window.scaledWidth - minecraftClient.textRenderer.getWidth("SciFy v0.1.2") - 5, minecraftClient.window.scaledHeight - minecraftClient.textRenderer.fontHeight - 5, 0xff00ff)
+                        drawContext?.drawTextWithShadow(minecraftClient.textRenderer,"§nSciFy v0.1.3",minecraftClient.window.scaledWidth - minecraftClient.textRenderer.getWidth("SciFy v0.1.3") - 5, minecraftClient.window.scaledHeight - minecraftClient.textRenderer.fontHeight - 5, 0xff00ff)
                     }
                 }
             })

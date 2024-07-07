@@ -7,8 +7,13 @@ object BridgeMixins {
     fun getNum0(): Int {
         return num0
     }
-    fun getNum1(): Int {
-        return num1
+
+    fun getStrNum0(): String {
+        return num0.toString()
+    }
+    fun getStrNum1(): String {
+        val strNum1 = num1 + 20
+        return strNum1.toString()
     }
 
     fun setNum0(number: Int) {
