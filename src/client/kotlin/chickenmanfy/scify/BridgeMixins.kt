@@ -16,8 +16,7 @@ object BridgeMixins {
     }
     fun getStrNum1(): String {
         if (num1 != 0) {
-            val strNum1 = num1 + 20
-            return strNum1.toString()
+            return num1.toString()
         }
         return "1"
     }

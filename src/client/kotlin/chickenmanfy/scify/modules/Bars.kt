@@ -15,6 +15,12 @@ class Bars {
     }
 
     fun bars() {
+        val width = 98f
+        val height = 18f
+        val xHealth = 5f
+        val yHealth = 5f
+        val xReality = 5f
+        val yReality = 10f + height
         HudRenderCallback.EVENT.register(HudRenderCallback { drawContext: DrawContext?, tickDelta: Float ->
             val tessellator: Tessellator = Tessellator.getInstance()
             val buffer: BufferBuilder = tessellator.buffer
@@ -22,30 +28,30 @@ class Bars {
             if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
                 if (barsToggle) {
                     buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
-                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-160, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
-                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-160, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
-                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-120, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
-                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-120, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
+                    buffer.vertex(positionMatrix, xReality, yReality, 0f).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
+                    buffer.vertex(positionMatrix, xReality, yReality+height, 0f).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
+                    buffer.vertex(positionMatrix, xReality+width, yReality+height, 0f).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
+                    buffer.vertex(positionMatrix, xReality+width, yReality, 0f).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
 
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
-
-                    RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/mana/vials_00${BridgeMixins.getStrNum1()}.png"))
+                    RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/mana/mana_${BridgeMixins.getStrNum1()}.png"))
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 
                     tessellator.draw()
 
                     buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
-                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-180, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
+                    /*buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-180, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
                     buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-180, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
                     buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-140, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
-                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-140, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
+                    buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-140, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()*/
+                    buffer.vertex(positionMatrix, xHealth, yHealth, 0f).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
+                    buffer.vertex(positionMatrix, xHealth, yHealth+height, 0f).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
+                    buffer.vertex(positionMatrix, xHealth+width, yHealth+height, 0f).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
+                    buffer.vertex(positionMatrix, xHealth+width, yHealth, 0f).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
+
 
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
-                    if (BridgeMixins.getNum0() < 10) {
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/health/vials_000${BridgeMixins.getStrNum0()}.png"))
-                    } else {
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/health/vials_00${BridgeMixins.getStrNum0()}.png"))
-                    }
+                    RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/health/health_${BridgeMixins.getStrNum0()}.png"))
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 
                     tessellator.draw()

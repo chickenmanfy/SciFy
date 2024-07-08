@@ -2,6 +2,7 @@ package chickenmanfy.scify.modules
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
+import net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
@@ -73,6 +74,7 @@ class Hotkey {
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "54.39.244.190:25608")
                 {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
+                    println(ClientReceiveMessageEvents.CHAT)
                 }
             }
             while (guide.wasPressed()) {
