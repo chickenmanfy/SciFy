@@ -25,20 +25,24 @@ class Bars {
             val tessellator: Tessellator = Tessellator.getInstance()
             val buffer: BufferBuilder = tessellator.buffer
             val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
-            if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
+            if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
+                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
+                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
+                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "54.39.244.190:25608") {
                 if (barsToggle) {
-                    buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
-                    buffer.vertex(positionMatrix, xReality, yReality, 0f).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
-                    buffer.vertex(positionMatrix, xReality, yReality+height, 0f).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
-                    buffer.vertex(positionMatrix, xReality+width, yReality+height, 0f).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
-                    buffer.vertex(positionMatrix, xReality+width, yReality, 0f).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
+                    if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
+                        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
+                        buffer.vertex(positionMatrix, xReality, yReality, 0f).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
+                        buffer.vertex(positionMatrix, xReality, yReality + height, 0f).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
+                        buffer.vertex(positionMatrix, xReality + width, yReality + height, 0f).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
+                        buffer.vertex(positionMatrix, xReality + width, yReality, 0f).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
 
-                    RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
-                    RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/mana/mana_${BridgeMixins.getStrNum1()}.png"))
-                    RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
+                        RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
+                        RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/mana/mana_${BridgeMixins.getStrNum1()}.png"))
+                        RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 
-                    tessellator.draw()
-
+                        tessellator.draw()
+                    }
                     buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
                     /*buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-180, MinecraftClient.getInstance().window.scaledHeight.toFloat() - 40, 0F).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
                     buffer.vertex(positionMatrix, MinecraftClient.getInstance().window.scaledWidth.toFloat()/2-180, MinecraftClient.getInstance().window.scaledHeight.toFloat(), 0F).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()

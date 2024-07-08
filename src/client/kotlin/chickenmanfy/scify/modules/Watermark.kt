@@ -19,7 +19,7 @@ class Watermark {
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "54.39.244.190:25608") {
                     if (watermarkToggle) {
                         val minecraftClient = MinecraftClient.getInstance()
-                        drawContext?.drawTextWithShadow(minecraftClient.textRenderer,"§nSciFy v0.1.5",minecraftClient.window.scaledWidth - minecraftClient.textRenderer.getWidth("SciFy v0.1.5") - 5, minecraftClient.window.scaledHeight - minecraftClient.textRenderer.fontHeight - 5, 0xff00ff)
+                        drawContext?.drawTextWithShadow(minecraftClient.textRenderer,"§nSciFy v0.1.6",minecraftClient.window.scaledWidth - minecraftClient.textRenderer.getWidth("SciFy v0.1.6") - 5, minecraftClient.window.scaledHeight - minecraftClient.textRenderer.fontHeight - 5, 0xff00ff)
                     }
                 }
             })
