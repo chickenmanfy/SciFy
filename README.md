@@ -10,7 +10,7 @@ I then remembered when one of my friends (BearCat865) suggested making a Dungeon
 ---
 # Roadmap
 _Currently in beta so expect bugs._
-- Right shift menu to enable and disable mods (90%)
+- Right shift menu to enable and disable mods (100%)
 - Health & Food bars replaced with dynamic bar similar to EXP bar (100%)
 - Auto-Welcome (20%) **WARNING: This feature may prove to be annoying, in which case we will remove it.**
 - City NPCs (Lively Mode) (0%)

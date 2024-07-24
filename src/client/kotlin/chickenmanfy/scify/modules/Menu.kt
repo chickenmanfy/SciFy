@@ -2,6 +2,7 @@ package chickenmanfy.scify.modules
 
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
+import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.tooltip.Tooltip
@@ -36,39 +37,45 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
 
         dynamicBars = ButtonWidget.builder(Text.literal("Custom Health/Mana")) {
             Bars().toggleBars() // Call the function toggleBars() from the bars.kt module
+            MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Custom Health and Mana bars.")))
+            .tooltip(Tooltip.of(Text.literal("Custom Health and Mana bars. (${if (barsToggle) "Enabled" else "Disabled"})")))
             .build()
         fishingNotif = ButtonWidget.builder(Text.literal("Fishing Notifications")) {
             FishingNotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the FishingNotif.kt module
+            MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 + 5, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Fishing Notifications")))
+            .tooltip(Tooltip.of(Text.literal("Fishing Notifications (${if (fishingToggle) "Enabled" else "Disabled"})")))
             .build()
         watermark = ButtonWidget.builder(Text.literal("Show Watermark")) {
             Watermark().toggleWaterMark() // Call the function toggleWaterMark() from the Watermark.kt module
+            MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 164, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Enable/Disable the small text in the bottom right displaying the mod name.")))
+            .tooltip(Tooltip.of(Text.literal("Enable/Disable the small text in the bottom right displaying the mod name. (${if (watermarkToggle) "Enabled" else "Disabled"})")))
             .build()
         autoWelcome = ButtonWidget.builder(Text.literal("Auto Welcome Back")) {
             AutoWelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the AutoWelcome.kt module
+            MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 124, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Automatically sends \"wb\" when a player joins.")))
+            .tooltip(Tooltip.of(Text.literal("Automatically sends \"wb\" when a player joins. (${if (autoWelcomeToggle) "Enabled" else "Disabled"})")))
             .build()
         livelyMode = ButtonWidget.builder(Text.literal("City NPCs (Lively Mode)")) {
             LivelyMode().toggleLivelyMode() // Call the function toggleLivelyMode() from the LivelyMode.kt module
+            MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 164, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Replaces Villagers with player NPCs")))
+            .tooltip(Tooltip.of(Text.literal("Replaces Villagers with player NPCs (${if (livelyModeToggle) "Enabled" else "Disabled"})")))
             .build()
         resourcePack = ButtonWidget.builder(Text.literal("Toggle Resource Pack")) {
             // TODO: Implement Resource pack
+            MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 + 5, 124, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack.")))
+            .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack. (${if (fishingToggle) "Enabled" else "Disabled"})")))
             .build()
 
         addDrawableChild(dynamicBars)
