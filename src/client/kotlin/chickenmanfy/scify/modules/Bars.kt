@@ -1,15 +1,41 @@
 package chickenmanfy.scify.modules
 
-import chickenmanfy.scify.BridgeMixins
 import com.mojang.blaze3d.systems.RenderSystem
+import net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.render.*
 import net.minecraft.util.Identifier
+import java.util.regex.Pattern
 
 var barsToggle: Boolean = true
 class Bars {
+    private var mana = 0
+    init {
+        ClientReceiveMessageEvents.GAME.register { actionbar, _ ->
+
+            val pattern: Pattern = Pattern.compile("\\[(\\d+)/(\\d+)]")
+            val matcher = pattern.matcher(actionbar.string)
+
+            var lastFirstNumber = 0
+            var lastSecondNumber = 0
+
+            while (matcher.find()) {
+                lastFirstNumber = matcher.group(1).toInt()
+                lastSecondNumber = matcher.group(2).toInt()
+            }
+
+            // Calculate finale for the last detected numbers
+            if (lastSecondNumber != 0) {
+                val divided = lastSecondNumber.toFloat() / 20
+                val final = Math.round(lastFirstNumber.toFloat() / divided)
+                mana = final
+            }
+
+        }
+    }
+
     fun toggleBars() {
         barsToggle = !barsToggle
     }
@@ -21,14 +47,14 @@ class Bars {
         val yHealth = 5f
         val xReality = 5f
         val yReality = 10f + height
-        HudRenderCallback.EVENT.register(HudRenderCallback { drawContext: DrawContext?, tickDelta: Float ->
+        HudRenderCallback.EVENT.register(HudRenderCallback { drawContext: DrawContext?, _: Float ->
             val tessellator: Tessellator = Tessellator.getInstance()
             val buffer: BufferBuilder = tessellator.buffer
             val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
             if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                 MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
                 MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "54.39.244.190:25608") {
+                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "proxyfy.minehut.gg") {
                 if (barsToggle) {
                     if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
                         buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
@@ -38,7 +64,7 @@ class Bars {
                         buffer.vertex(positionMatrix, xReality + width, yReality, 0f).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
 
                         RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
-                        RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/mana/mana_${BridgeMixins.getStrNum1()}.png"))
+                        RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/mana/mana_${mana}.png"))
                         RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 
                         tessellator.draw()
@@ -52,10 +78,10 @@ class Bars {
                     buffer.vertex(positionMatrix, xHealth, yHealth+height, 0f).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
                     buffer.vertex(positionMatrix, xHealth+width, yHealth+height, 0f).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
                     buffer.vertex(positionMatrix, xHealth+width, yHealth, 0f).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
-
-
+                    val maxHealthDivided = MinecraftClient.getInstance().player?.maxHealth?.div(20)?.toInt()
+                    val health = MinecraftClient.getInstance().player?.health?.toInt()?.div(maxHealthDivided!!)
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
-                    RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/health/health_${BridgeMixins.getStrNum0()}.png"))
+                    RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/health/health_${health}.png"))
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
 
                     tessellator.draw()

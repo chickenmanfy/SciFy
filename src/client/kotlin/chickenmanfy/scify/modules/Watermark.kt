@@ -16,10 +16,10 @@ class Watermark {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "54.39.244.190:25608") {
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "proxyfy.minehut.gg") {
                     if (watermarkToggle) {
                         val minecraftClient = MinecraftClient.getInstance()
-                        val scifyVersion = "0.1.7"
+                        val scifyVersion = "0.2.0"
                         drawContext?.drawTextWithShadow(minecraftClient.textRenderer,"§nSciFy v${scifyVersion}",minecraftClient.window.scaledWidth - minecraftClient.textRenderer.getWidth("SciFy v${scifyVersion}") - 5, minecraftClient.window.scaledHeight - minecraftClient.textRenderer.fontHeight - 5, 0xff00ff)
                     }
                 }
