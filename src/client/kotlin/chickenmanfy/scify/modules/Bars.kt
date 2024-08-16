@@ -26,11 +26,11 @@ class Bars {
                 lastSecondNumber = matcher.group(2).toInt()
             }
 
-            // Calculate finale for the last detected numbers
+            // Final mana value
             if (lastSecondNumber != 0) {
                 val divided = lastSecondNumber.toFloat() / 20
                 val final = Math.round(lastFirstNumber.toFloat() / divided)
-                mana = final
+                mana = if (final <= 20) final else 20
             }
 
         }
@@ -79,7 +79,7 @@ class Bars {
                     buffer.vertex(positionMatrix, xHealth+width, yHealth+height, 0f).color(1f, 1f, 1f, 1f).texture(1f, 1f).next()
                     buffer.vertex(positionMatrix, xHealth+width, yHealth, 0f).color(1f, 1f, 1f, 1f).texture(1f, 0f).next()
                     val maxHealthDivided = MinecraftClient.getInstance().player?.maxHealth?.div(20)?.toInt()
-                    val health = MinecraftClient.getInstance().player?.health?.toInt()?.div(maxHealthDivided!!)
+                    val health = if (MinecraftClient.getInstance().player?.health?.toInt()?.div(maxHealthDivided!!)!! <= 20) MinecraftClient.getInstance().player?.health?.toInt()?.div(maxHealthDivided!!) else 20
                     RenderSystem.setShader { GameRenderer.getPositionColorTexProgram() }
                     RenderSystem.setShaderTexture(0, Identifier("scify", "healthmana/health/health_${health}.png"))
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f)
