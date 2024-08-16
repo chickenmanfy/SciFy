@@ -53,8 +53,7 @@ class Bars {
             val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
             if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                 MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "proxyfy.minehut.gg") {
+                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com") {
                 if (barsToggle) {
                     if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
                         buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)

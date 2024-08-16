@@ -60,8 +60,7 @@ class Hotkey {
             while (warp.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "proxyfy.minehut.gg")
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
                 {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("warp")
                 }
@@ -70,8 +69,7 @@ class Hotkey {
             while (enderchest.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "proxyfy.minehut.gg")
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
                 {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
                     println(ClientReceiveMessageEvents.CHAT)
@@ -80,8 +78,7 @@ class Hotkey {
             while (guide.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "proxyfy.minehut.gg")
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
                 {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("guide")
                 }
@@ -89,8 +86,7 @@ class Hotkey {
             while (menu.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
                     MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "proxyfy.minehut.gg")
+                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
                 {
                     MinecraftClient.getInstance().setScreen(Menu())
                 }

@@ -13,10 +13,9 @@ class AutoWelcome {
     fun autoWelcome() {
         if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
             MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-            MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-            MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "proxyfy.minehut.gg") {
+            MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com") {
             if (autoWelcomeToggle) {
-                return // TODO: Combine init{} with this function.
+                return
             }
         }
     }
