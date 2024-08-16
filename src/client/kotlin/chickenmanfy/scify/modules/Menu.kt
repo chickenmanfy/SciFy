@@ -10,7 +10,7 @@ import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-
+var modDisableOverride = false
 @Environment(EnvType.CLIENT)
 class Menu : Screen(Text.literal("SciFy Menu")) {
     private var dynamicBars: ButtonWidget? = null
@@ -19,6 +19,7 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
     private var autoWelcome: ButtonWidget? = null
     private var livelyMode: ButtonWidget? = null
     private var resourcePack: ButtonWidget? = null
+    private var forceMod: ButtonWidget? = null
 
     override fun render(context: DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
         super.render(context, mouseX, mouseY, delta)
@@ -78,11 +79,20 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack. (${if (fishingToggle) "Enabled" else "Disabled"})")))
             .build()
 
+        forceMod = ButtonWidget.builder(Text.literal("ADVANCED: Force enable mod features")) {
+            modDisableOverride = !modDisableOverride
+            println(modDisableOverride)
+            MinecraftClient.getInstance().setScreen(Menu())
+        }
+            .dimensions(width / 2 - 100, height - 40, 200, 20)
+            .tooltip(Tooltip.of(Text.literal("Disables the requirement to be on Dungeonfy. This means the features work on every server. This is not recommended. (${if (modDisableOverride) "Enabled" else "Disabled"})")))
+            .build()
         addDrawableChild(dynamicBars)
         addDrawableChild(fishingNotif)
         addDrawableChild(watermark)
         addDrawableChild(autoWelcome)
         //addDrawableChild(livelyMode)
         addDrawableChild(resourcePack)
+        addDrawableChild(forceMod)
     }
 }

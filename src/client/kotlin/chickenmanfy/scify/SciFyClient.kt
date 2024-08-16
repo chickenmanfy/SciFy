@@ -13,6 +13,6 @@ object SciFyClient : ClientModInitializer {
         FishingNotif().fishingNotif()
         Bars().bars()
         Watermark().watermark()
-        //LivelyMode().livelyMode()
+        LivelyMode().livelyMode()
     }
 }

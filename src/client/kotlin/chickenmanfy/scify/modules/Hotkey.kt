@@ -84,12 +84,7 @@ class Hotkey {
                 }
             }
             while (menu.wasPressed()) {
-                if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com")
-                {
-                    MinecraftClient.getInstance().setScreen(Menu())
-                }
+                MinecraftClient.getInstance().setScreen(Menu())
             }
             while (debug.wasPressed()) {
                 println(MinecraftClient.getInstance().networkHandler?.serverInfo?.address)
