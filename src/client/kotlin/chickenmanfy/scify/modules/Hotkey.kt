@@ -47,15 +47,6 @@ class Hotkey {
             )
         )
 
-        // Debug
-        val debug = KeyBindingHelper.registerKeyBinding(
-            KeyBinding(
-                "Debug",
-                InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_MINUS,
-                "SciFy"
-            )
-        )
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (warp.wasPressed()) {
                 if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
@@ -89,12 +80,6 @@ class Hotkey {
             while (menu.wasPressed()) {
                 MinecraftClient.getInstance().setScreen(Menu())
             }
-            while (debug.wasPressed()) {
-                println(MinecraftClient.getInstance().networkHandler?.serverInfo?.address)
-                println(MinecraftClient.getInstance().player?.name?.string)
-                MinecraftClient.getInstance().player?.networkHandler?.sendChatMessage("wb")
-            }
-
         })
 
     }

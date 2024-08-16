@@ -19,7 +19,7 @@ class Watermark {
                     modDisableOverride) {
                     if (watermarkToggle) {
                         val minecraftClient = MinecraftClient.getInstance()
-                        val scifyVersion = "0.2.11"
+                        val scifyVersion = "0.2.12"
                         drawContext?.drawTextWithShadow(minecraftClient.textRenderer,"§nSciFy v${scifyVersion}",minecraftClient.window.scaledWidth - minecraftClient.textRenderer.getWidth("SciFy v${scifyVersion}") - 5, minecraftClient.window.scaledHeight - minecraftClient.textRenderer.fontHeight - 5, 0xff00ff)
                     }
                 }
