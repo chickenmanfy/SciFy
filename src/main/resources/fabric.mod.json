@@ -45,10 +45,10 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.6",
-		"minecraft": "~1.20.4",
+		"minecraft": "~1.21.1",
 		"java": ">=17",
 		"fabric-api": "*",
-		"fabric-language-kotlin": ">=1.9.22"
+		"fabric-language-kotlin": ">=1.11.0"
 	},
 	"suggests": {
 		"Mythicfy": "*"
