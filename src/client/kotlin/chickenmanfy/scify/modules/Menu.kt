@@ -50,6 +50,7 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .dimensions(width / 2 + 5, 84, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Fishing Notifications (${if (fishingToggle) "Enabled" else "Disabled"})")))
             .build()
+        fishingNotif?.active = false
         watermark = ButtonWidget.builder(Text.literal("Show Watermark")) {
             Watermark().toggleWaterMark() // Call the function toggleWaterMark() from the Watermark.kt module
             MinecraftClient.getInstance().setScreen(Menu())
@@ -64,6 +65,7 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .dimensions(width / 2 - 205, 124, 200, 20)
             .tooltip(Tooltip.of(Text.literal("Automatically sends \"wb\" when a player joins. (${if (autoWelcomeToggle) "Enabled" else "Disabled"})")))
             .build()
+        autoWelcome?.active = false
         livelyMode = ButtonWidget.builder(Text.literal("City NPCs (Lively Mode)")) {
             LivelyMode().toggleLivelyMode() // Call the function toggleLivelyMode() from the LivelyMode.kt module
             MinecraftClient.getInstance().setScreen(Menu())
