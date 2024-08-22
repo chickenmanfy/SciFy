@@ -81,10 +81,5 @@ class Bars {
                 }
             }
         })
-
-        /*HudRenderCallback.EVENT.register(HudRenderCallback { drawContext: DrawContext, _: RenderTickCounter ->
-            val color = -0x10000 // Red
-            drawContext.fill(0, 0, 100, 100, 0, color)
-        })*/
     }
 }
